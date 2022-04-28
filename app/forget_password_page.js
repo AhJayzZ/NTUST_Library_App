@@ -1,12 +1,12 @@
 import React from "react"
 import { StyleSheet, Image, Text, View, TouchableOpacity ,TextInput } from "react-native"
 
-export default function() {
+export default function(navigation) {
   return (
     <View>
       
       <View style={styles.Top_tabs_with_return_buttom}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigation.goBack()}>
           <Image
             style={styles.Return_buttom}
             source={require('../assets/return_button.png')}
@@ -33,6 +33,10 @@ export default function() {
           <Text style={styles.Txt492}></Text>
         </TextInput>
       </View>
+
+      <TouchableOpacity style={styles.Confirm_button} onPress={() => navigation.navigation.navigate('forget_password_finish_page')}>
+        <Text style={styles.Txt772}>確認</Text>
+      </TouchableOpacity>
 
       <View>
         <Text style={styles.TxtFont}>
@@ -146,8 +150,29 @@ const styles = StyleSheet.create({
     width: 279,
     opacity: 0.5,
   },
+  Confirm_button: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    alignSelf: "center",
+    marginTop: 10 ,
+    paddingTop: 11,
+    paddingBottom: 11,
+    paddingLeft: 19,
+    paddingRight: 19,
+    borderRadius: 12,
+    backgroundColor: "rgba(0,91,172,1)",
+    width: 88,
+    height: 53,
+  },
+  Txt772: {
+    fontSize: 24,
+    fontWeight: "700",
+    color: "rgba(255, 255, 255, 1)",
+  },
   TxtFont : {
-    paddingTop : 30,
+    paddingTop : 10,
     paddingLeft : 20,
     paddingRight : 20,
     fontSize: 24,

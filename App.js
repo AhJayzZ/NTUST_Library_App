@@ -1,130 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View , TouchableOpacity, Image } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+import language_page from './app/language_page'
+import identity_page from './app/identity_page'
+import login_page_NTUST from './app/login_page_NTUST'
+import login_page_notNTUST from './app/login_page_notNTUST';
+import login_page_other from './app/login_page_other';
+import login_page_staff from './app/login_page_staff';
+import login_help_page from './app/login_help_page'
+import forget_password_page from './app/forget_password_page';
+import forget_password_finish_page from './app/forget_password_finish_page';
+
+const Stack = createNativeStackNavigator();
 
 export default function() {
   return (
-    <View style={{backgroundColor: '#E2E6F2',height:'100%'}}>
-      
-      <StatusBar style='auto' hidden />
-      
-      <View style={styles.Top_tabs}>
-        <View style={styles.Text_field}>
-          <Text style={styles.Txt945}>語言 Language </Text>
-        </View>
-      </View>
-      
-      <Text>{'\n'}</Text>
-
-      <View style={styles.Icon_app}>
-        <Image
-          style={styles.Ntust_lib_icon}
-          source={require('./assets/NTUST_Lib_Icon.png')}
-        />
-      </View>
-
-      <Text style={{color:'#013B64',
-                    fontSize:32,
-                    textAlign:'center',
-                    fontWeight:'bold'}}>{'\n'}NTUST {'\n'} Library APP {'\n'}
-      </Text>
-
-      <View style={styles.Group_buttom}>
-        <TouchableOpacity style={styles.Button_lang_chinese}>
-          <Text style={styles.Txt863}>中文</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.Button_lang_english}>
-          <Text style={styles.Txt863}>English</Text>
-        </TouchableOpacity>
-      </View>
-
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+          <Stack.Screen name='language_page' component={ language_page } options={{headerShown: false}} />
+          <Stack.Screen name='identity_page' component={ identity_page } options={{headerShown: false}} />
+          <Stack.Screen name='login_page_NTUST' component={ login_page_NTUST } options={{headerShown: false}} />
+          <Stack.Screen name='login_page_notNTUST' component={ login_page_notNTUST } options={{headerShown: false}} />
+          <Stack.Screen name='login_page_other' component={ login_page_other } options={{headerShown: false}} />
+          <Stack.Screen name='login_page_staff' component={ login_page_staff } options={{headerShown: false}} />
+          <Stack.Screen name='login_help_page' component={ login_help_page } options={{headerShown: false}} />
+          <Stack.Screen name='forget_password_page' component={ forget_password_page } options={{headerShown: false}} />
+          <Stack.Screen name='forget_password_finish_page' component={ forget_password_finish_page } options={{headerShown: false}} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  Top_tabs: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "flex-start",
-    alignItems: "center",
-    paddingTop: 6,
-    paddingBottom: 6,
-    paddingLeft: 9,
-    paddingRight: 9,
-    backgroundColor: "rgba(0,91,172,1)",
-    shadowColor: "rgba(0,0,0,0.25)",
-    elevation: 0,
-    shadowOffset: { width: 0, height: 4 },
-    width: 360,
-    height: 50,
-  },
-  Text_field: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "flex-start",
-    alignItems: "center",
-    width: 200,
-    height: 36,
-  },
-  Txt945: {
-    fontSize: 28,
-    fontWeight: "400",
-    color: "rgba(226,230,242,1)",
-    textAlign: "center",
-    justifyContent: "center",
-  },
-  Group_buttom: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "flex-start",
-    alignItems: "center",
-    width: 360,
-    height: 146,
-  },
-  Button_lang_chinese: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    paddingTop: 11,
-    paddingBottom: 11,
-    paddingLeft: 19,
-    paddingRight: 19,
-    marginBottom: 20,
-    borderRadius: 5,
-    backgroundColor: "rgba(0,91,172,1)",
-  },
-  Txt863: {
-    fontSize: 32,
-    fontWeight: "700",
-    color: "rgba(255, 255, 255, 1)",
-  },
-  Button_lang_english: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    paddingTop: 11,
-    paddingBottom: 11,
-    paddingLeft: 19,
-    paddingRight: 19,
-    borderRadius: 5,
-    backgroundColor: "rgba(0,91,172,1)",
-  }, Icon_app: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "flex-start",
-    alignItems: "flex-start",
-    alignSelf: 'center',
-    paddingTop: 19,
-    paddingBottom: 19,
-    paddingLeft: 19,
-    paddingRight: 19,
-    width: 160,
-    height: 160,
-  },
-  Ntust_lib_icon: {
-    width: 120,
-    height: 120,
-  },
-});

@@ -1,19 +1,19 @@
 import React from "react"
 import { StyleSheet, Image, Text, View, TouchableOpacity } from "react-native"
 
-export default function() {
+export default function(navigation) {
   return (
     <View>
       
       <View style={styles.Top_tabs_with_return_buttom}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigation.goBack()}>
           <Image
             style={styles.Return_buttom}
             source={require('../assets/return_button.png')}
           />
         </TouchableOpacity>
         <View style={styles.Text_field}>
-          <Text style={styles.Txt022}>忘記密碼</Text>
+          <Text style={styles.Txt022}>登入說明</Text>
         </View>
       </View>
       
@@ -24,7 +24,7 @@ export default function() {
           style={styles.Icon_app}
           source={require('../assets/NTUST_Lib_Icon.png')}
         />
-        <Text style={styles.Txt653}>忘記密碼</Text>
+        <Text style={styles.Txt653}>登入說明</Text>
       </View>
 
       <View>

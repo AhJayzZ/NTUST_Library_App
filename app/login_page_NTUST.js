@@ -1,12 +1,12 @@
 import React from "react"
 import { StyleSheet, Image, Text, View, TextInput, TouchableOpacity } from "react-native"
 
-export default function () {
+export default function (navigation) {
   return (
     <View style={styles.main}>
 
       <View style={styles.Top_tabs_with_return_buttom}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigation.goBack()}>
           <Image
             style={styles.Return_buttom}
             source={require('../assets/return_button.png')}
@@ -47,10 +47,10 @@ export default function () {
       </TouchableOpacity>
 
       <View style={styles.Buttom_2}>
-        <TouchableOpacity style={styles.Text_buttom}>
+        <TouchableOpacity style={styles.Text_buttom} onPress={() => navigation.navigation.navigate('forget_password_page')}>
           <Text style={styles.Txt885}>忘記密碼</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.Text_buttom1}>
+        <TouchableOpacity style={styles.Text_buttom1} onPress={() => navigation.navigation.navigate('login_help_page')}>
           <Text style={styles.Txt885}>登入說明</Text>
         </TouchableOpacity>
       </View>

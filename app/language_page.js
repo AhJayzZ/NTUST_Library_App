@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View , TouchableOpacity, Image } from 'react-native';
 
-export default function() {
+export default function(navigation){
   return (
     <View style={{backgroundColor: '#E2E6F2',height:'100%'}}>
       
@@ -29,11 +29,11 @@ export default function() {
       </Text>
 
       <View style={styles.Group_buttom}>
-        <TouchableOpacity style={styles.Button_lang_chinese}>
+        <TouchableOpacity style={styles.Button_lang_chinese} onPress={() => navigation.navigation.navigate('identity_page')}>
           <Text style={styles.Txt863}>中文</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.Button_lang_english}>
-          <Text style={styles.Txt863}>English</Text>
+        <TouchableOpacity style={styles.Button_lang_english} onPress={() => alert('English ver. is not finish yet')}>
+          <Text style={styles.Txt863}>English (Unfinish)</Text>
         </TouchableOpacity>
       </View>
 

@@ -1,14 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View , TouchableOpacity, Image } from 'react-native';
 
-export default function() {
+export default function(navigation) {
   return (
     <View style={{backgroundColor: '#E2E6F2',height:'100%'}}>
       
       <StatusBar style='auto' hidden />
       
       <View style={styles.Top_tabs_with_return_buttom}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigation.goBack()}>
           <Image
           style={styles.Return_buttom}
           source={require('../assets/return_button.png')}/>
@@ -33,16 +33,16 @@ export default function() {
 
       <View style={styles.Button_group}>
         <View style={styles.Group832}>
-          <TouchableOpacity style={styles.Text_header}>
+          <TouchableOpacity style={styles.Text_header} onPress={() => navigation.navigation.navigate('login_page_NTUST') }>
             <Text style={styles.Txt277}>臺科在校生</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.Text_header}>
+          <TouchableOpacity style={styles.Text_header} onPress={() => navigation.navigation.navigate('login_page_notNTUST')}>
             <Text style={styles.Txt277}>臺大、臺師大在校生</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.Text_header}>
+          <TouchableOpacity style={styles.Text_header} onPress={() => navigation.navigation.navigate('login_page_staff')} >
             <Text style={styles.Txt277}>教職員</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.Text_header}>
+          <TouchableOpacity style={styles.Text_header} onPress={() => navigation.navigation.navigate('login_page_other')}>
             <Text style={styles.Txt277}>校友及其他借書證讀者</Text>
           </TouchableOpacity>
         </View>

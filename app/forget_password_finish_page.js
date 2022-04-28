@@ -1,12 +1,12 @@
 import React from "react"
 import { StyleSheet, Image, Text, View, TouchableOpacity } from "react-native"
 
-export default function() {
+export default function(navigation) {
   return (
     <View>
       
       <View style={styles.Top_tabs_with_return_buttom}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigation.goBack()}>
           <Image
             style={styles.Return_buttom}
             source={require('../assets/return_button.png')}
