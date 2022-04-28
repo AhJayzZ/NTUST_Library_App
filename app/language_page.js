@@ -18,7 +18,7 @@ export default function() {
       <View style={styles.Icon_app}>
         <Image
           style={styles.Ntust_lib_icon}
-          source={require('./assets/NTUST_Lib_Icon.png')}
+          source={require('../assets/NTUST_Lib_Icon.png')}
         />
       </View>
 
@@ -68,7 +68,6 @@ const styles = StyleSheet.create({
   },
   Txt945: {
     fontSize: 28,
-    fontFamily: "Lora, serif",
     fontWeight: "400",
     color: "rgba(226,230,242,1)",
     textAlign: "center",
@@ -97,7 +96,6 @@ const styles = StyleSheet.create({
   },
   Txt863: {
     fontSize: 32,
-    fontFamily: "Inter, sans-serif",
     fontWeight: "700",
     color: "rgba(255, 255, 255, 1)",
   },
