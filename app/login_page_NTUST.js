@@ -42,7 +42,7 @@ export default function (navigation) {
         </View>
       </View>
 
-      <TouchableOpacity style={styles.Buttom_1}>
+      <TouchableOpacity style={styles.Buttom_1} onPress={() => navigation.navigation.navigate('personal_navigator_page')}>
         <Text style={styles.Txt015}>登入</Text>
       </TouchableOpacity>
 

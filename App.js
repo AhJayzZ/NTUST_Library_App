@@ -11,12 +11,15 @@ import login_help_page from './app/login_help_page'
 import forget_password_page from './app/forget_password_page';
 import forget_password_finish_page from './app/forget_password_finish_page';
 
+import PersonalNavigator from './app/personal/PersonalNavigator'
+
 const Stack = createNativeStackNavigator();
 
 export default function() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
+    <NavigationContainer >
+      <Stack.Navigator initialRouteName="language_page">
+          {/* initial login */}
           <Stack.Screen name='language_page' component={ language_page } options={{headerShown: false}} />
           <Stack.Screen name='identity_page' component={ identity_page } options={{headerShown: false}} />
           <Stack.Screen name='login_page_NTUST' component={ login_page_NTUST } options={{headerShown: false}} />
@@ -26,6 +29,10 @@ export default function() {
           <Stack.Screen name='login_help_page' component={ login_help_page } options={{headerShown: false}} />
           <Stack.Screen name='forget_password_page' component={ forget_password_page } options={{headerShown: false}} />
           <Stack.Screen name='forget_password_finish_page' component={ forget_password_finish_page } options={{headerShown: false}} />
+
+          {/* personal */}
+          <Stack.Screen name='personal_navigator_page' component={ PersonalNavigator } options = {{headerShown:false}} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
