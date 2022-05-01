@@ -37,10 +37,10 @@ export default function(navigation) {
                 </TouchableOpacity>
             </View>
             
-            <Table style={styles.tableStyle}>
+            {/* <Table style={styles.tableStyle}>
                 <Row data={['館藏名稱','狀態']}></Row>
                 <Row data={['館藏名稱','狀態']}></Row>
-            </Table>
+            </Table> */}
 
         </View>
     )
