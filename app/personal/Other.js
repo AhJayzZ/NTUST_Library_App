@@ -1,5 +1,6 @@
 import * as React from 'react';
-import {Text, View,} from 'react-native';
+import {StyleSheet, Image, Text, View, TouchableOpacity } from 'react-native';
+import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
 
 export default function(navigation) {
     return (
@@ -7,7 +8,12 @@ export default function(navigation) {
             <View style={{flexDirection: 'row',padding:10}}>
                 <Text style={{color:'#005BAC',fontSize:18, }}>設定</Text>
                 <View style={{backgroundColor: '#005BAC', height: 1, flex: 1, alignSelf: 'center'}} />
-            </View>
+                    <TouchableOpacity onPress={() => navigation.navigation.goBack()}>
+                        <Image
+                        style={styles.buttom}
+                        source={require('../assets/setting_page/home.png')}/>
+                    </TouchableOpacity>
+                </View>
             <View style={{flexDirection: 'row',padding:10}}>
                 <Text style={{color:'#005BAC',fontSize:18, }}>功能</Text>
                 <View style={{backgroundColor: '#005BAC', height: 1, flex: 1, alignSelf: 'center'}} />
@@ -20,3 +26,10 @@ export default function(navigation) {
         
     );
 }
+
+const styles = StyleSheet.create({
+    buttom: {
+      width: 35,
+      height: 35,
+    },
+  });
