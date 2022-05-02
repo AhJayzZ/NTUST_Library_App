@@ -32,8 +32,8 @@ export default function(navigation){
         <TouchableOpacity style={styles.Button_lang_chinese} onPress={() => navigation.navigation.navigate('identity_page')}>
           <Text style={styles.Txt863}>中文</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.Button_lang_english} onPress={() => alert('English ver. is not finish yet')}>
-          <Text style={styles.Txt863}>English (Unfinish)</Text>
+        <TouchableOpacity style={styles.Button_lang_english} onPress={() => alert('Developing')}>
+          <Text style={styles.Txt863}>English</Text>
         </TouchableOpacity>
       </View>
 

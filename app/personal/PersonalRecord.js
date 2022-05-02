@@ -48,7 +48,6 @@ const element_name = (data) => (
             
             <View style={{backgroundColor: '#005BAC', height: 1, flex: 1, alignSelf: 'center'}} />
 
-            {/* neet to arragne as horizontal  */}
             <View style={styles.buttonTableStyle}>
                 <TouchableOpacity style={styles.buttonStyle}>
                     <Text style={styles.buttonTextStyle}>已借館藏 (6)</Text>
@@ -65,36 +64,6 @@ const element_name = (data) => (
                 <TouchableOpacity style={styles.buttonStyle}>
                     <Text style={styles.buttonTextStyle}>關注館藏</Text>
                 </TouchableOpacity>
-            </View>
-            
-            <View style={styles.container}>
-                <Table Style={{ borderColor: "transparent" }}>
-                <Row
-                    data={state.tableHead}
-                    style={styles.head}
-                    flexArr={state.flexArr}
-                />
-                {state.tableData.map((rowData, index) => (
-                    <TableWrapper
-                    key={index}
-                    style={styles.row}
-                    >
-                    {rowData.map((cellData, cellIndex) =>
-                        cellIndex < 2 ? (
-                        <Cell
-                            key={cellIndex}
-                            data={
-                            cellIndex == 0
-                                ? element_name(cellData)
-                                : cellData
-                            }
-                            flex={state.flexArr[cellIndex]}
-                        />
-                        ) : <View></View>
-                    )}
-                    </TableWrapper>
-                ))}
-                </Table>
             </View>
 
 
@@ -138,6 +107,8 @@ const styles = StyleSheet.create({
         color: "rgba(1,59,100,1)",
       },
       buttonStyle: {
+        borderColor : 10,
+        paddingLeft : 5,
         width : '25%',
         height : 50,
         alignItems: "center",
@@ -146,7 +117,8 @@ const styles = StyleSheet.create({
         paddingBottom : 5,
       },
       buttonTextStyle : {
-          fontSize : 16,
+          fontSize : 15,
+          fontWeight : 'bold',
           color :'#104695',
       },
       buttonTableStyle : {
@@ -155,33 +127,5 @@ const styles = StyleSheet.create({
           textAlign : 'center',
           paddingBottom : 10,
           paddingTop : 10
-      },
-      container: {
-        flex: 1,
-        padding: 12,
-        paddingTop: 0,
-        backgroundColor: "#fff"
-      },
-      head: { backgroundColor: "#005BAC", textAlign: "center" },
-      head_text: { margin: 6, color: "#E2E6F2" },
-      text: {
-        margin: 6,
-        color: "#063071",
-        textAlign: "center"
-      },
-      row: {
-        //display: "flex",
-        flexDirection: "row",
-        backgroundColor: "#FFF1C1",
-        padding: 2
-      },
-      btn: {
-        //display: "flex",
-        //flex: 1,
-        borderRadius: 2
-      },
-      btnText: { 
-        color: "#063071", 
-        textDecorationLine: "underline" 
-    }
+      }
 })

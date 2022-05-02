@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet,Image, Button, View, SafeAreaView, Text, Alert} from 'react-native';
+import { StyleSheet,Image, View, Text} from 'react-native';
 
 export default function(navigation) {
     
@@ -27,7 +27,7 @@ export default function(navigation) {
           <Text style={styles.time} > 近期活動 </Text>
           <View style={{backgroundColor: '#86CADD',marginHorizontal: 8, paddingHorizontal:5, paddingVertical: 6.5, borderWidth: 1,borderColor:'#013B64',}}>
             <Text style={styles.text_3} > 5/4 (三) 電影欣賞 -《蜘蛛人:無家日》</Text>
-            <Text style={styles.text_3} > 5/6 (五) 心夜享讀 - 心得分喜活動</Text>
+            <Text style={styles.text_3} > 5/6 (五) 心夜享讀 - 心得分享活動</Text>
           </View>
         </View>
         <View style={{flexDirection: 'row', backgroundColor: '#84AEE9', marginVertical: 8, paddingLeft:5, paddingRight:65, paddingVertical: 20, }}>
@@ -84,12 +84,12 @@ const styles = StyleSheet.create({
     fontSize: 18,
     textAlign: 'left',
     color: 'black',
-    paddingLeft:2,
   },
   buttom: {
     width: 38,
     height: 36,
     marginHorizontal:15,
-    marginTop: 5,
+    alignContent : 'center',
+    alignSelf :'center',
   },
 });
