@@ -144,7 +144,7 @@ export default function(navigation) {
                     </TouchableOpacity>
                     <Text style={styles.reference_buttom_text}>聯絡我們</Text>
                 </View>
-                <View style={{flexDirection: 'column',padding:10}}>
+                <View style={{flexDirection: 'column',padding:10,justifyContent: 'center', alignItems: 'center',}}>
                     <TouchableOpacity onPress={() => navigation.navigation.navigate('personal_navigator_page')}>
                         <Image
                         style={styles.reference_buttom}
