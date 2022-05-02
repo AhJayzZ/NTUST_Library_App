@@ -1,9 +1,7 @@
-import REACT , { component } from 'react';
 import { Text, View , Image , StyleSheet , TouchableOpacity} from 'react-native';
 import { Table, TableWrapper,Row , Cell} from 'react-native-table-component'
 
 export default function(navigation) {
-
 const state = {
     tableHead : ["館藏名稱", "狀態"],
     tableData :  [
@@ -27,8 +25,8 @@ const state = {
 }
 
 
-const element_name = (data, barcode) => (
-    <TouchableOpacity onPress={() => this._jump_page_book_info(barcode)}>
+const element_name = (data) => (
+    <TouchableOpacity>
       <View style={styles.btn}>
         <Text style={styles.btnText}>{data}</Text>
       </View>
@@ -48,9 +46,10 @@ const element_name = (data, barcode) => (
                 </View>
             </View>
             
+            <View style={{backgroundColor: '#005BAC', height: 1, flex: 1, alignSelf: 'center'}} />
 
             {/* neet to arragne as horizontal  */}
-            <View>
+            <View style={styles.buttonTableStyle}>
                 <TouchableOpacity style={styles.buttonStyle}>
                     <Text style={styles.buttonTextStyle}>已借館藏 (6)</Text>
                 </TouchableOpacity>
@@ -73,7 +72,6 @@ const element_name = (data, barcode) => (
                 <Row
                     data={state.tableHead}
                     style={styles.head}
-                    textStyle={styles.head_text}
                     flexArr={state.flexArr}
                 />
                 {state.tableData.map((rowData, index) => (
@@ -87,7 +85,7 @@ const element_name = (data, barcode) => (
                             key={cellIndex}
                             data={
                             cellIndex == 0
-                                ? element_name(cellData,state.tableData[cellIndex][2])
+                                ? element_name(cellData)
                                 : cellData
                             }
                             flex={state.flexArr[cellIndex]}
@@ -140,25 +138,23 @@ const styles = StyleSheet.create({
         color: "rgba(1,59,100,1)",
       },
       buttonStyle: {
-        width : 120,
-        height : 35,
+        width : '25%',
+        height : 50,
         alignItems: "center",
+        justifyContent : 'center',
         paddingTop : 5,
         paddingBottom : 5,
-        borderRadius: 12,
-        borderColor : 'black',
-        borderWidth : 1,
-        backgroundColor: 'white',
       },
       buttonTextStyle : {
           fontSize : 16,
+          color :'#104695',
       },
-      tableStyle : {
-          height : '100%',
-          borderColor : 'black',
-          borderWidth : 1,
-          backgroundColor : '#E2E6F2',
-          textAlign : 'center'
+      buttonTableStyle : {
+          display: 'flex',
+          flexDirection:'row',
+          textAlign : 'center',
+          paddingBottom : 10,
+          paddingTop : 10
       },
       container: {
         flex: 1,

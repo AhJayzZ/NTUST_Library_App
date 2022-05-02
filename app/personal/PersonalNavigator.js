@@ -1,6 +1,3 @@
-import * as React from 'react';
-
-import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -45,7 +42,7 @@ export default NavigateBar = function(navigation) {
           name="館藏查詢" 
           component={Search} 
           options={{
-            tabBarOptions: { showIcon: true, },
+            tabBarOptions: { showIcon: true},
             tabBarIcon:({})=>{return(<FontAwesome name={'search'} size={25} color={'#E2E6F2'}/>)}
           }}/>
 

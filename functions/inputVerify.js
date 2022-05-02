@@ -1,5 +1,5 @@
 const isEmpty = (input) => {
-    if (input == '') return true
+    if (input == null) return true
     else return false
 } 
 

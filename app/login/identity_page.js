@@ -11,7 +11,7 @@ export default function(navigation) {
         <TouchableOpacity onPress={() => navigation.navigation.goBack()}>
           <Image
           style={styles.Return_buttom}
-          source={require('../assets/return_button.png')}/>
+          source={require('../../assets/return_button.png')}/>
         </TouchableOpacity>
         <View style={styles.Text_field}>
           <Text style={styles.Txt716}>登入身份選擇</Text>
@@ -23,7 +23,7 @@ export default function(navigation) {
       <View style={styles.Header}>
         <Image
           style={styles.Icon_app}
-          source={require('../assets/NTUST_Lib_Icon.png')}
+          source={require('../../assets/NTUST_Lib_Icon.png')}
         />
         <Text>{'\n'}</Text>
         <Text style={styles.Txt967}>登入身份選擇</Text>

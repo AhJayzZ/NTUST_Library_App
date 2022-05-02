@@ -1,48 +1,54 @@
 import React from "react"
 import { StyleSheet, Image, Text, View, TouchableOpacity } from "react-native"
 
-export default function(navigation) {
+
+export default function (navigation) {
   return (
-    <View>
-      
+    <View style={styles.main}>
+
       <View style={styles.Top_tabs_with_return_buttom}>
         <TouchableOpacity onPress={() => navigation.navigation.goBack()}>
           <Image
             style={styles.Return_buttom}
-            source={require('../assets/return_button.png')}
+            source={require('../../assets/return_button.png')}
           />
         </TouchableOpacity>
         <View style={styles.Text_field}>
-          <Text style={styles.Txt022}>登入說明</Text>
+          <Text style={styles.Txt783}>設定-帳號頁面</Text>
         </View>
       </View>
-      
-      <Text> {'\n\n'}</Text>
+
+      <Text>{'\n'}</Text>
 
       <View style={styles.Header}>
         <Image
           style={styles.Icon_app}
-          source={require('../assets/NTUST_Lib_Icon.png')}
+          source={require('../../assets/NTUST_Lib_Icon.png')}
         />
-        <Text style={styles.Txt653}>登入說明</Text>
+        <Text style={styles.Txt755}>帳號設定</Text>
       </View>
 
-      <View>
-        <Text style={styles.TxtFont}>
-          <Text>賬號：{'\n'}</Text>
-          <Text>1.學生請輸入學生證號，在校教職員工請輸入身分證字號。{'\n'}</Text>
-          <Text>2.校友借書證及其他借書證讀者，請輸入借書證上之條碼。{'\n'}</Text>
-          <Text>{'\n'}</Text>
-          <Text>密碼：{'\n'}</Text>
-          <Text>學生及教職員預設密碼請輸入身分證字號，校友請輸入學號。</Text>
-        </Text>
-      </View>
-
+      <TouchableOpacity style={styles.Buttom_1} onPress={() => alert('開發中')}>
+        <Text style={styles.Txt015}>更改密碼</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.Buttom_1} onPress={() => alert('開發中')}>
+        <Text style={styles.Txt015}>更改聯絡Email</Text>
+      </TouchableOpacity>
+      
     </View>
   )
 }
 
 const styles = StyleSheet.create({
+  main: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    backgroundColor: "rgba(226,230,242,1)",
+    width: '100%',
+    height: '100%',
+  },
   Top_tabs_with_return_buttom: {
     display: "flex",
     flexDirection: "row",
@@ -52,12 +58,12 @@ const styles = StyleSheet.create({
     paddingBottom: 6,
     paddingLeft: 9,
     paddingRight: 9,
+    marginBottom: 6,
     backgroundColor: "rgba(0,91,172,1)",
     shadowColor: "rgba(0,0,0,0.25)",
     elevation: 0,
     shadowOffset: { width: 0, height: 4 },
     width: 360,
-    height: 50,
   },
   Return_buttom: {
     width: 40,
@@ -72,7 +78,7 @@ const styles = StyleSheet.create({
     width: 300,
     height: 36,
   },
-  Txt022: {
+  Txt783: {
     fontSize: 28,
     fontWeight: "400",
     color: "rgba(226,230,242,1)",
@@ -84,27 +90,49 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    width: 360,
-    height: 204,
+    position: "relative",
+    marginBottom: 6,
+    paddingBottom : 20,
+    width: '100%',
   },
   Icon_app: {
     width: 160,
     height: 160,
   },
-  Txt653: {
+  Txt755: {
     fontSize: 36,
     fontWeight: "400",
     color: "rgba(1,59,100,1)",
     textAlign: "center",
     justifyContent: "center",
   },
-  TxtFont :{
-    paddingTop : 30,
-    paddingLeft : 20,
-    paddingRight : 20,
-    fontSize: 24,
+
+
+  Txt129: {
+    fontSize: 18,
     fontWeight: "400",
-    color: "rgba(1,59,100,1)",
+    lineHeight: 27,
+    color: "rgba(82,82,92,1)",
+    width: 311,
+    marginBottom: 8,
+  },
+  Buttom_1: {
+    display: "flex",
+    flexDirection: "row",
     justifyContent: "center",
-  }
+    alignItems: "center",
+    paddingTop: 11,
+    paddingBottom: 11,
+    paddingLeft: 19,
+    paddingRight: 19,
+    marginTop : 15,
+    marginBottom: 6,
+    borderRadius: 12,
+    backgroundColor: "rgba(0,91,172,1)",
+  },
+  Txt015: {
+    fontSize: 24,
+    fontWeight: "700",
+    color: "rgba(255, 255, 255, 1)",
+  },
 })

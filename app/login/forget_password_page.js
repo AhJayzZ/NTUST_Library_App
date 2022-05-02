@@ -9,7 +9,7 @@ export default function(navigation) {
         <TouchableOpacity onPress={() => navigation.navigation.goBack()}>
           <Image
             style={styles.Return_buttom}
-            source={require('../assets/return_button.png')}
+            source={require('../../assets/return_button.png')}
           />
         </TouchableOpacity>
         <View style={styles.Text_field}>
@@ -22,7 +22,7 @@ export default function(navigation) {
       <View style={styles.Header}>
         <Image
           style={styles.Icon_app}
-          source={require('../assets/NTUST_Lib_Icon.png')}
+          source={require('../../assets/NTUST_Lib_Icon.png')}
         />
         <Text style={styles.Txt653}>忘記密碼</Text>
       </View>

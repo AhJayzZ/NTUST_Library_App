@@ -18,7 +18,7 @@ export default function(navigation){
       <View style={styles.Icon_app}>
         <Image
           style={styles.Ntust_lib_icon}
-          source={require('../assets/NTUST_Lib_Icon.png')}
+          source={require('../../assets/NTUST_Lib_Icon.png')}
         />
       </View>
 

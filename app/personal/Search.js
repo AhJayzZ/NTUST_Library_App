@@ -1,19 +1,9 @@
 import * as React from 'react';
-import { Text, View, StyleSheet ,Image,TouchableOpacity} from 'react-native';
+import { Text, View, StyleSheet ,Image,TouchableOpacity ,TextInput} from 'react-native';
 
 export default function(navigation){    
 return (
   <View>
-    <View style={styles.Frame5}>
-      <Text style={styles.Txt944}>關鍵字</Text>
-      <TouchableOpacity>
-        <Image
-          // style = {styles.expandIconStyle}
-          source={require('../../assets/expand.png')}
-          />
-      </TouchableOpacity>
-
-    </View>
 
     <View style={styles.Frame2}>
       <TouchableOpacity>
@@ -22,18 +12,17 @@ return (
       <TouchableOpacity>
         <Image style={styles.Ocr} source={require('../../assets/ocr.png')} />
       </TouchableOpacity>
-      <Text style={styles.placeholderText}>館藏查詢</Text>
+      <TextInput style={styles.inputText} placeholder="館藏查詢"></TextInput>
       <TouchableOpacity>
         <Image style={styles.Search} source={require('../../assets/search_icon.png')} />
       </TouchableOpacity>
+      
     </View>
-
 
     <View style={styles.functionMenu}>
       <Text style={styles.functionLabel}>功能</Text>
       <View style={{borderBottomColor: '#D9D9D9' ,borderBottomWidth : 10}} />
     </View> 
-
 
   </View>
 
@@ -88,12 +77,12 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
   },
-  placeholderText:{
+  inputText:{
     fontSize: 20,
+    paddingLeft : 10,
     width : '60%',
     fontWeight: "400",
     color: "#D9D9D9",
-    textAlign: "center",
     justifyContent: "center",
     alignSelf : 'center',
   },

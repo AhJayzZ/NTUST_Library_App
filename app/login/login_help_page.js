@@ -9,11 +9,11 @@ export default function(navigation) {
         <TouchableOpacity onPress={() => navigation.navigation.goBack()}>
           <Image
             style={styles.Return_buttom}
-            source={require('../assets/return_button.png')}
+            source={require('../../assets/return_button.png')}
           />
         </TouchableOpacity>
         <View style={styles.Text_field}>
-          <Text style={styles.Txt022}>忘記密碼</Text>
+          <Text style={styles.Txt022}>登入說明</Text>
         </View>
       </View>
       
@@ -22,15 +22,19 @@ export default function(navigation) {
       <View style={styles.Header}>
         <Image
           style={styles.Icon_app}
-          source={require('../assets/NTUST_Lib_Icon.png')}
+          source={require('../../assets/NTUST_Lib_Icon.png')}
         />
-        <Text style={styles.Txt653}>忘記密碼</Text>
+        <Text style={styles.Txt653}>登入說明</Text>
       </View>
 
       <View>
         <Text style={styles.TxtFont}>
-          <Text>1.已將重設密碼鏈接，傳送到您的聯絡Email。{'\n'}</Text>
-          <Text>2.寄送之電子信箱預設為本校之信箱，另可修改或增加其他您常用之信箱。{'\n'}</Text>
+          <Text>賬號：{'\n'}</Text>
+          <Text>1.學生請輸入學生證號，在校教職員工請輸入身分證字號。{'\n'}</Text>
+          <Text>2.校友借書證及其他借書證讀者，請輸入借書證上之條碼。{'\n'}</Text>
+          <Text>{'\n'}</Text>
+          <Text>密碼：{'\n'}</Text>
+          <Text>學生及教職員預設密碼請輸入身分證字號，校友請輸入學號。</Text>
         </Text>
       </View>
 
@@ -94,13 +98,13 @@ const styles = StyleSheet.create({
     textAlign: "center",
     justifyContent: "center",
   },
-  TxtFont : {
+  TxtFont :{
     paddingTop : 30,
     paddingLeft : 20,
     paddingRight : 20,
     fontSize: 24,
     fontWeight: "400",
     color: "rgba(1,59,100,1)",
-    justifyContent: "center"
+    justifyContent: "center",
   }
 })

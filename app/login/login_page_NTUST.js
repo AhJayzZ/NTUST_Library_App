@@ -1,7 +1,7 @@
 import React from "react"
 import { StyleSheet, Image, Text, View, TextInput, TouchableOpacity } from "react-native"
 
-export default function(navigation) {
+export default function (navigation) {
   return (
     <View style={styles.main}>
 
@@ -9,7 +9,7 @@ export default function(navigation) {
         <TouchableOpacity onPress={() => navigation.navigation.goBack()}>
           <Image
             style={styles.Return_buttom}
-            source={require('../assets/return_button.png')}
+            source={require('../../assets/return_button.png')}
           />
         </TouchableOpacity>
         <View style={styles.Text_field}>
@@ -22,16 +22,16 @@ export default function(navigation) {
       <View style={styles.Header}>
         <Image
           style={styles.Icon_app}
-          source={require('../assets/NTUST_Lib_Icon.png')}
+          source={require('../../assets/NTUST_Lib_Icon.png')}
         />
-        <Text style={styles.Txt755}>教職員</Text>
+        <Text style={styles.Txt755}>臺科在校生</Text>
         <Text style={styles.Txt762}>登入</Text>
       </View>
 
       <View style={styles.Input}>
         <Text style={styles.Txt129}>賬號</Text>
         <View style={styles.TextField}>
-          <TextInput style={styles.Txt341} placeholder="身份證字號"></TextInput>
+          <TextInput style={styles.Txt341} placeholder="學號"></TextInput>
         </View>
       </View>
 
@@ -281,6 +281,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     justifyContent: "center",
   },
+
   Text_buttom1: {
     display: "flex",
     flexDirection: "row",
