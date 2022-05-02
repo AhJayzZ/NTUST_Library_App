@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "flex-start",
-    alignItems: "flex-start",
+    alignItems: "center",
     paddingTop: 9,
     paddingBottom: 9,
     paddingLeft: 9,
@@ -63,14 +63,13 @@ const styles = StyleSheet.create({
     alignSelf : 'center',
   },
   expandIconStyle : {
-
+    
   },
   Frame2: {
     display: 'flex',
     flexDirection: "row",
     justifyContent : 'center',
     marginTop: 10,
-    paddingLeft : 15,
     borderRadius : 12,
     borderColor : "#D9D9D9",
     borderWidth : 2,
