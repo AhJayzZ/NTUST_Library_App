@@ -1,6 +1,6 @@
 import React from "react"
 import { StyleSheet, Image, Text, View, TouchableOpacity } from "react-native"
-
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 export default function (navigation) {
   return (
@@ -14,7 +14,7 @@ export default function (navigation) {
           />
         </TouchableOpacity>
         <View style={styles.Text_field}>
-          <Text style={styles.Txt783}>設定-帳號頁面</Text>
+          <Text style={styles.Txt783}>設定-首頁</Text>
         </View>
       </View>
 
@@ -25,14 +25,29 @@ export default function (navigation) {
           style={styles.Icon_app}
           source={require('../../assets/NTUST_Lib_Icon.png')}
         />
-        <Text style={styles.Txt755}>帳號設定</Text>
+        <Text style={styles.Txt755}>首頁設定</Text>
       </View>
 
-      <TouchableOpacity style={styles.Buttom_1} onPress={() => alert('開發中')}>
-        <Text style={styles.Txt015}>更改密碼</Text>
+      <TouchableOpacity style={styles.Buttom_1} onPress={() => {
+                                                                AsyncStorage.setItem('home','PersonalRecord')
+                                                                navigation.navigation.goBack()
+                                                                alert('已設定首頁至 "個人借閱" ')
+                                                                }}>
+        <Text style={styles.Txt015}>個人借閱</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.Buttom_1} onPress={() => alert('開發中')}>
-        <Text style={styles.Txt015}>更改聯絡Email</Text>
+      <TouchableOpacity style={styles.Buttom_1} onPress={() => {
+                                                                AsyncStorage.setItem('home','Notice')
+                                                                navigation.navigation.goBack()
+                                                                alert('已設定首頁至 "通知" ')
+                                                                }}>
+        <Text style={styles.Txt015}>通知</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.Buttom_1} onPress={() => {
+                                                                AsyncStorage.setItem('home','Search')
+                                                                navigation.navigation.goBack()
+                                                                alert('已設定首頁至 "館藏查詢" ')
+                                                                }}>
+        <Text style={styles.Txt015}>館藏查詢</Text>
       </TouchableOpacity>
       
     </View>

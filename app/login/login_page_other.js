@@ -1,7 +1,11 @@
-import React from "react"
+import React, {useState} from "react"
 import { StyleSheet, Image, Text, View, TextInput, TouchableOpacity } from "react-native"
+import { isEmpty } from '../../functions/inputVerify'
 
 export default function(navigation) {
+  const [id , setId] =  useState('')
+  const [password , setPassword] = useState('')
+
   return (
     <View style={styles.main}>
 
@@ -31,18 +35,25 @@ export default function(navigation) {
       <View style={styles.Input}>
         <Text style={styles.Txt129}>賬號</Text>
         <View style={styles.TextField}>
-          <TextInput style={styles.Txt341} placeholder="借書證號"></TextInput>
+          <TextInput style={styles.Txt341} 
+                            placeholder="借書證號"
+                            onChangeText={newId => setId(newId)}></TextInput>
         </View>
       </View>
 
       <View style={styles.Input}>
         <Text style={styles.Txt129}>密碼</Text>
         <View style={styles.TextField}>
-          <TextInput style={styles.Txt341} placeholder="密碼"></TextInput>
+          <TextInput style={styles.Txt341} 
+                      placeholder="密碼"
+                      onChangeText={newPassword => setPassword(newPassword)}></TextInput>
         </View>
       </View>
 
-      <TouchableOpacity style={styles.Buttom_1} onPress={() => navigation.navigation.navigate('personal_navigator_page')}>
+      <TouchableOpacity style={styles.Buttom_1} onPress={() => {( isEmpty(id) || isEmpty(password) )  
+                                                                  ? alert('借書證號或密碼不能為空\n id or password cannot be empty') 
+                                                                  : navigation.navigation.navigate('personal_navigator_page')
+                                                                  }}>
         <Text style={styles.Txt015}>登入</Text>
       </TouchableOpacity>
 

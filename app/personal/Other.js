@@ -1,5 +1,6 @@
 
 import {StyleSheet, Text, View, TouchableOpacity, Image , Linking } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 export default function(navigation) {
     return (
@@ -25,7 +26,7 @@ export default function(navigation) {
                 </View>
 
                 <View style={{flexDirection: 'row',}}>
-                    <TouchableOpacity onPress={() => navigation.navigation.navigate('identity_page')}>
+                    <TouchableOpacity onPress={() => navigation.navigation.navigate('home_page')}>
                         <Image
                         style={styles.setting_buttom}
                         source={require('../../assets/setting_page/home.png')}/>
@@ -34,7 +35,10 @@ export default function(navigation) {
                 </View>
 
                 <View style={{flexDirection: 'row',}}>
-                    <TouchableOpacity onPress={() => navigation.navigation.navigate('language_page')}>
+                    <TouchableOpacity onPress={() => {
+                                                    AsyncStorage.clear()
+                                                    navigation.navigation.navigate('initial_language_page')
+                                                    }}>
                         <Image
                         style={styles.setting_buttom}
                         source={require('../../assets/setting_page/Logout.png')}/>
@@ -153,7 +157,7 @@ export default function(navigation) {
                 </View>
 
                 <View style={{flexDirection: 'column',padding:10}}>
-                    <TouchableOpacity onPress={() => alert('作者 : \n 鍾德偉、王勁杰、謝維、林紹元')}>
+                    <TouchableOpacity onPress={() => alert('作者 : \n鍾德偉、王勁杰、謝維、林紹元')}>
                         <Image
                         style={styles.reference_buttom}
                         source={require('../../assets/setting_page/about_app.png')}/>

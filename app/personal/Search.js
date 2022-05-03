@@ -187,7 +187,7 @@ const styles = StyleSheet.create({
     justifyContent : 'center'
   },
   input_4: {
-    marginRight : 20, 
+    marginRight : 30, 
     marginVertical: 12,
     borderTopWidth: 1,
     borderBottomWidth: 1,

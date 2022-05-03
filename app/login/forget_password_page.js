@@ -1,7 +1,10 @@
-import React from "react"
+import React, {useState} from "react"
 import { StyleSheet, Image, Text, View, TouchableOpacity ,TextInput } from "react-native"
+import { isEmpty } from "../../functions/inputVerify"
 
 export default function(navigation) {
+  const [id , setId] = useState('')
+
   return (
     <View>
       
@@ -29,12 +32,17 @@ export default function(navigation) {
 
       <View style={styles.Input}>
         <Text style={styles.Txt465}>請告訴我們您的賬號</Text>
-        <TextInput style={styles.TextField} placeholder="學號/證號">
+        <TextInput style={styles.TextField} 
+                    placeholder="學號/證號"
+                    onChangeText={newId => setId(newId)}
+                    >
           <Text style={styles.Txt492}></Text>
         </TextInput>
       </View>
 
-      <TouchableOpacity style={styles.Confirm_button} onPress={() => navigation.navigation.navigate('forget_password_finish_page')}>
+      <TouchableOpacity style={styles.Confirm_button} onPress={() => isEmpty(id) 
+                                                                      ? alert('學號/證號不能為空白')
+                                                                      : navigation.navigation.navigate('forget_password_finish_page')}>
         <Text style={styles.Txt772}>確認</Text>
       </TouchableOpacity>
 

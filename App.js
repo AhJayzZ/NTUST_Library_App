@@ -2,7 +2,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
-import language_page from './app/login/language_page'
+import initial_language_page from './app/login/initial_language_page'
 import identity_page from './app/login/identity_page'
 import login_page_NTUST from './app/login/login_page_NTUST'
 import login_page_notNTUST from './app/login/login_page_notNTUST';
@@ -15,6 +15,8 @@ import forget_password_finish_page from './app/login/forget_password_finish_page
 import PersonalNavigator from './app/personal/PersonalNavigator'
 
 import account_page from './app/setting/account'
+import language_page from './app/setting/language';
+import home_page from './app/setting/home'
 
 const Stack = createNativeStackNavigator();
 
@@ -33,9 +35,9 @@ const Stack = createNativeStackNavigator();
 export default function() {
   return (
       <NavigationContainer>
-          <Stack.Navigator initialRouteName={'language_page'}>
+          <Stack.Navigator initialRouteName={'initial_language_page'}>
               {/* initial login */}
-              <Stack.Screen name='language_page' component={ language_page } options={{headerShown: false}} />
+              <Stack.Screen name='initial_language_page' component={ initial_language_page } options={{headerShown: false}} />
               {/* personal */}
               <Stack.Screen name='personal_navigator_page' component={ PersonalNavigator } options = {{headerShown:false}} />
   
@@ -49,6 +51,8 @@ export default function() {
               <Stack.Screen name='forget_password_finish_page' component={ forget_password_finish_page } options={{headerShown: false}} />
   
               <Stack.Screen name='account_page' component={ account_page } options={{headerShown:false}} />
+              <Stack.Screen name='language_page' component={ language_page } options={{headerShown:false}} />
+              <Stack.Screen name='home_page' component={ home_page } options={{headerShown:false}} />
   
           </Stack.Navigator>
         </NavigationContainer>

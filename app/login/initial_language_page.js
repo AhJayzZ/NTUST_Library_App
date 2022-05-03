@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View , TouchableOpacity, Image } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 export default function(navigation){
   return (
@@ -29,7 +30,10 @@ export default function(navigation){
       </Text>
 
       <View style={styles.Group_buttom}>
-        <TouchableOpacity style={styles.Button_lang_chinese} onPress={() => navigation.navigation.navigate('identity_page')}>
+        <TouchableOpacity style={styles.Button_lang_chinese} onPress={() => {
+                                                                            AsyncStorage.setItem('language','Chinese')
+                                                                            navigation.navigation.navigate('identity_page')
+                                                                            }}>
           <Text style={styles.Txt863}>中文</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.Button_lang_english} onPress={() => alert('Developing')}>
