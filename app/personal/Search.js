@@ -83,7 +83,7 @@ return (
           </View>
 
           <View style={styles.button_area}>
-            <TouchableOpacity onPress={() => alert('開發中')}>
+            <TouchableOpacity onPress={ () => navigation.navigation.navigate('random_book_page')}>
               <Image
               style={styles.button}
               source={require('../../assets/search_page/random_book.png')}/>

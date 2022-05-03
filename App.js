@@ -1,5 +1,6 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { useState } from 'react'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
 import initial_language_page from './app/login/initial_language_page'
@@ -14,6 +15,8 @@ import forget_password_finish_page from './app/login/forget_password_finish_page
 
 import PersonalNavigator from './app/personal/PersonalNavigator'
 
+import random_book_page from './app/search/random_book';
+
 import account_page from './app/setting/account'
 import language_page from './app/setting/language';
 import home_page from './app/setting/home'
@@ -23,23 +26,31 @@ const Stack = createNativeStackNavigator();
 // AsyncStorage.clear()
 
 // const [isLoggedIn,setIsLoggedIn] = useState(false)
-// const isLoggedIn = false
+
 // const loggedInCheck = async() => {
 //   await AsyncStorage.getAllKeys().then(res => console.log(res))
 //   await AsyncStorage.getItem('language') ? true : false
 //   setIsLoggedIn(true)
+
+//   return (
+//     isLoggedIn 
+//     ? <Stack.Screen name='initial_language_page' component={ initial_language_page } options={{headerShown: false}} />
+//     : <Stack.Screen name='personal_navigator_page' component={ PersonalNavigator } options = {{headerShown:false}} />
+//   )
 // }
-// loggedInCheck();
+
 
 
 export default function() {
   return (
       <NavigationContainer>
-          <Stack.Navigator initialRouteName={'initial_language_page'}>
-              {/* initial login */}
+          <Stack.Navigator headerMode={"none"} initialRouteName='initial_language_page'>
+
               <Stack.Screen name='initial_language_page' component={ initial_language_page } options={{headerShown: false}} />
-              {/* personal */}
+
               <Stack.Screen name='personal_navigator_page' component={ PersonalNavigator } options = {{headerShown:false}} />
+              
+              <Stack.Screen name='random_book_page'  component={ random_book_page } options={{headerShown:false}} />
   
               <Stack.Screen name='identity_page' component={ identity_page } options={{headerShown: false}} />
               <Stack.Screen name='login_page_NTUST' component={ login_page_NTUST } options={{headerShown: false}} />
