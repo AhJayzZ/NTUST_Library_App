@@ -30,13 +30,13 @@ return (
                         />
                         <Text style={styles.student_id}>B12345678:</Text>
                     <Text style={styles.message}>中和的永和路在哪裡?</Text>
-                    <View style={styles.like_area}>
+                    <TouchableOpacity style={styles.like_area}>
                         <Image
                                 style={styles.good}
                                 source={require('../../assets/setting_page/good.png')}
                         />
                         < Text style={styles.like_num}> 3 </Text>
-                    </View>
+                    </TouchableOpacity>
                 </View>
             </View>
 
@@ -52,13 +52,13 @@ return (
                         />
                         <Text style={styles.student_id}>B10909052:</Text>
                     <Text style={styles.message}>請問疫情升溫有閉館嗎?</Text>
-                    <View style={styles.like_area}>
+                    <TouchableOpacity style={styles.like_area}>
                         <Image
                                 style={styles.good}
                                 source={require('../../assets/setting_page/good.png')}
                         />
                         < Text style={styles.like_num}> 2 </Text>
-                    </View>
+                    </TouchableOpacity>
                 </View>
             </View>
 
@@ -74,13 +74,13 @@ return (
                         />
                         <Text style={styles.student_id}>B12345678:</Text>
                     <Text style={styles.message}>現在沒有冷氣 好熱</Text>
-                    <View style={styles.like_area}>
+                    <TouchableOpacity style={styles.like_area}>
                         <Image
                                 style={styles.good}
                                 source={require('../../assets/setting_page/good.png')}
                         />
                         < Text style={styles.like_num}> 4 </Text>
-                    </View>
+                    </TouchableOpacity>
                 </View>
             </View>
 
@@ -95,13 +95,13 @@ return (
                         />
                         <Text style={styles.student_id}>B10909052:</Text>
                     <Text style={styles.message}>不要答非所問</Text>
-                    <View style={styles.like_area}>
+                    <TouchableOpacity style={styles.like_area}>
                         <Image
                                 style={styles.good}
                                 source={require('../../assets/setting_page/good.png')}
                         />
                         < Text style={styles.like_num}> 5 </Text>
-                    </View>
+                    </TouchableOpacity>
                 </View>
             </View>
 
@@ -116,13 +116,13 @@ return (
                         />
                         <Text style={styles.student_id}>B98765678:</Text>
                     <Text style={styles.message}>不要吵架</Text>
-                    <View style={styles.like_area}>
+                    <TouchableOpacity style={styles.like_area}>
                         <Image
                                 style={styles.good}
                                 source={require('../../assets/setting_page/good.png')}
                         />
                         < Text style={styles.like_num}> 1 </Text>
-                    </View>
+                    </TouchableOpacity>
                 </View>
             </View>
 
@@ -137,13 +137,13 @@ return (
                         />
                         <Text style={styles.student_id}>B12345678:</Text>
                     <Text style={styles.message}>德偉屁股好翹</Text>
-                    <View style={styles.like_area}>
+                    <TouchableOpacity style={styles.like_area}>
                         <Image
                                 style={styles.good}
                                 source={require('../../assets/setting_page/good.png')}
                         />
                         < Text style={styles.like_num}> 142 </Text>
-                    </View>
+                    </TouchableOpacity>
                 </View>
             </View>
 
@@ -158,13 +158,13 @@ return (
                         />
                         <Text style={styles.student_id}>B12345678:</Text>
                     <Text style={styles.message}>德偉屁股好大</Text>
-                    <View style={styles.like_area}>
+                    <TouchableOpacity style={styles.like_area}>
                         <Image
                                 style={styles.good}
                                 source={require('../../assets/setting_page/good.png')}
                         />
                         < Text style={styles.like_num}> 127 </Text>
-                    </View>
+                    </TouchableOpacity>
                 </View>
             </View>
 
@@ -179,13 +179,13 @@ return (
                         />
                         <Text style={styles.student_id}>B12399678:</Text>
                     <Text style={styles.message}>你看過喔??</Text>
-                    <View style={styles.like_area}>
+                    <TouchableOpacity style={styles.like_area}>
                         <Image
                                 style={styles.good}
                                 source={require('../../assets/setting_page/good.png')}
                         />
                         < Text style={styles.like_num}> 465 </Text>
-                    </View>
+                    </TouchableOpacity>
                 </View>
             </View>
 
@@ -200,13 +200,13 @@ return (
                         />
                         <Text style={styles.student_id}>B12399678:</Text>
                     <Text style={styles.message}>杰哥不要</Text>
-                    <View style={styles.like_area}>
+                    <TouchableOpacity style={styles.like_area}>
                         <Image
                                 style={styles.good}
                                 source={require('../../assets/setting_page/good.png')}
                         />
                         < Text style={styles.like_num}> 999 </Text>
-                    </View>
+                    </TouchableOpacity>
                 </View>
             </View>
 

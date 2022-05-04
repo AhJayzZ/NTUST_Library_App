@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { StyleSheet, Image, Text, View, TextInput, TouchableOpacity } from "react-native"
+import { StyleSheet, Image, Text, View, TextInput, TouchableOpacity,ScrollView } from "react-native"
 import { isEmpty } from "../../functions/inputVerify"
 
 export default function (navigation) {
@@ -23,48 +23,51 @@ export default function (navigation) {
 
       <Text>{'\n'}</Text>
 
-      <View style={styles.Header}>
-        <Image
-          style={styles.Icon_app}
-          source={require('../../assets/NTUST_Lib_Icon.png')}
-        />
-        <Text style={styles.Txt755}>臺大、臺師大在校生</Text>
-        <Text style={styles.Txt762}>登入</Text>
-      </View>
-
-      <View style={styles.Input}>
-        <Text style={styles.Txt129}>賬號</Text>
-        <View style={styles.TextField}>
-          <TextInput style={styles.Txt341} 
-                      placeholder="學號"
-                      onChangeText={newId => setId(newId)}></TextInput>
+      <ScrollView>
+        <View style={styles.Header}>
+          <Image
+            style={styles.Icon_app}
+            source={require('../../assets/NTUST_Lib_Icon.png')}
+          />
+          <Text style={styles.Txt755}>臺大、臺師大在校生</Text>
+          <Text style={styles.Txt762}>登入</Text>
         </View>
-      </View>
 
-      <View style={styles.Input}>
-        <Text style={styles.Txt129}>密碼</Text>
-        <View style={styles.TextField}>
-          <TextInput style={styles.Txt341} 
-                      placeholder="密碼"
-                      onChangeText={newPassword => setPassword(newPassword)}></TextInput>
+        <View style={styles.Input}>
+          <Text style={styles.Txt129}>賬號</Text>
+          <View style={styles.TextField}>
+            <TextInput style={styles.Txt341} 
+                        placeholder="學號"
+                        onChangeText={newId => setId(newId)}></TextInput>
+          </View>
         </View>
-      </View>
 
-      <TouchableOpacity style={styles.Buttom_1} onPress={() => {( isEmpty(id) || isEmpty(password) )  
-                                                                  ? alert('學號或密碼不能為空\n id or password cannot be empty') 
-                                                                  : navigation.navigation.navigate('personal_navigator_page')
-                                                                  }}>
-        <Text style={styles.Txt015}>登入</Text>
-      </TouchableOpacity>
+        <View style={styles.Input}>
+          <Text style={styles.Txt129}>密碼</Text>
+          <View style={styles.TextField}>
+            <TextInput style={styles.Txt341} 
+                        placeholder="密碼"
+                        onChangeText={newPassword => setPassword(newPassword)}></TextInput>
+          </View>
+        </View>
 
-      <View style={styles.Buttom_2}>
-        <TouchableOpacity style={styles.Text_buttom} onPress={() => navigation.navigation.navigate('forget_password_page')}>
-          <Text style={styles.Txt885}>忘記密碼</Text>
+        <TouchableOpacity style={styles.Buttom_1} onPress={() => {( isEmpty(id) || isEmpty(password) )  
+                                                                    ? alert('學號或密碼不能為空\n id or password cannot be empty') 
+                                                                    : navigation.navigation.navigate('personal_navigator_page')
+                                                                    }}>
+          <Text style={styles.Txt015}>登入</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.Text_buttom1} onPress={() => navigation.navigation.navigate('login_help_page')}>
-          <Text style={styles.Txt885}>登入說明</Text>
-        </TouchableOpacity>
-      </View>
+
+        <View style={styles.Buttom_2}>
+          <TouchableOpacity style={styles.Text_buttom} onPress={() => navigation.navigation.navigate('forget_password_page')}>
+            <Text style={styles.Txt885}>忘記密碼</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.Text_buttom1} onPress={() => navigation.navigation.navigate('login_help_page')}>
+            <Text style={styles.Txt885}>登入說明</Text>
+          </TouchableOpacity>
+        </View>
+      </ScrollView>                                                                
+
     </View>
   ) 
 }
@@ -240,10 +243,7 @@ const styles = StyleSheet.create({
   },
 
   Buttom_1: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
+    alignSelf: 'center',
     paddingTop: 11,
     paddingBottom: 11,
     paddingLeft: 19,
