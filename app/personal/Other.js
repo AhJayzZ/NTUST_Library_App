@@ -1,4 +1,4 @@
-
+import React from 'react';
 import {StyleSheet, Text, View, TouchableOpacity, Image , Linking } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
@@ -64,7 +64,7 @@ export default function(navigation) {
                 </View>
 
                 <View style={styles.button_area_2}>
-                    <TouchableOpacity onPress={() => alert('系統開發中')}>
+                    <TouchableOpacity onPress={() => navigation.navigation.navigate('mood_message_page')}>
                         <Image
                         style={styles.button}
                         source={require('../../assets/setting_page/write_down_feeling.png')}/>

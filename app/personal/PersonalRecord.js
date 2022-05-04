@@ -1,16 +1,24 @@
 import React, { useState } from 'react';
-import { Text, View, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { Text, View, Image, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import { TableWrapper, Row, Cell } from 'react-native-table-component'
 
 export default function (navigation) {
-  const table = {
-    name: ["已借館藏 (6)", "預約館藏 (6)", "借閱歷史", "關注館藏"],
+  const Table = {
+    Name: ["已借館藏", "預約館藏", "借閱歷史", "關注館藏"],
+    Head: ["館藏名稱", "狀態"],
+    flexArr: [3, 1],
   }
+
   const [table_state, set_table_state] = useState(0);
 
-  const table_data = {
-    tableHead: ["館藏名稱", "狀態"],
-    tableData: [
+  const TableData_ItemBorrow = {
+    ItemInfo: [
+      [
+        "富爸爸,有錢人為什麼越來越有錢? / 羅勃特.T. 清崎(Robert T. Kiyosaki),湯姆.惠萊特(Tom Wheelwright)著; 王立天譯",
+        "22-5-3",
+        "C321555",
+        1,
+      ],
       [
         "順著大腦來生活 : 從起床到就寢,用大腦喜歡的模式,活出創意、健康與生產力的最高生活法 / 大衛.洛克(David Rock)著; 黃庭敏譯寢",
         "22-5-5",
@@ -19,19 +27,56 @@ export default function (navigation) {
       ],
       [
         "富爸爸商學院 : 銷售致富的財商教育 / 羅勃特.T.清崎(Robert T. Kiyosaki)著; 李平釗,王東譯",
-        "22-4-22\n逾期",
+        "22-4-22",
         "C321537",
         -1,
       ],
-      [
-        "富爸爸,有錢人為什麼越來越有錢? / 羅勃特.T. 清崎(Robert T. Kiyosaki),湯姆.惠萊特(Tom Wheelwright)著; 王立天譯",
-        "22-5-3\n被預約",
-        "C321555",
-        1,
-      ]
+
     ],
-    flexArr: [3, 1]
   };
+
+  const Number_ItemBorrow = TableData_ItemBorrow.ItemInfo.length
+
+  const TableData_ItemRequest = {
+    ItemInfo: [
+
+      [
+        "富爸爸商學院 : 銷售致富的財商教育 / 羅勃特.T.清崎(Robert T. Kiyosaki)著; 李平釗,王東譯",
+        "22-4-22",
+        "C321537",
+        -1,
+      ],
+    ],
+  };
+
+  const Number_ItemRequest = TableData_ItemRequest.ItemInfo.length
+
+  const TableData_History = {
+    ItemInfo: [
+      [
+        "順著大腦來生活 : 從起床到就寢,用大腦喜歡的模式,活出創意、健康與生產力的最高生活法 / 大衛.洛克(David Rock)著; 黃庭敏譯寢",
+        "22-5-5",
+        "C321535",
+        0
+      ],
+      [
+        "富爸爸商學院 : 銷售致富的財商教育 / 羅勃特.T.清崎(Robert T. Kiyosaki)著; 李平釗,王東譯",
+        "22-4-22",
+        "C321537",
+        -1,
+      ],
+    ],
+  };
+
+  const Number_History = TableData_History.ItemInfo.length
+
+  const TableData_Favourite = {
+    ItemInfo: [
+
+    ],
+  };
+
+  const Number_favourite = TableData_Favourite.ItemInfo.length
 
   //to-do 
   const jump_page_book_info = (barcode) => {
@@ -46,9 +91,21 @@ export default function (navigation) {
     </TouchableOpacity>
   );
 
-  const state_info = (data, data_state) => {
-    <Text style={styles.text}>{data}</Text>
-  }
+  const state_info = (data, data_state) => (
+    <View>
+      <View >
+        {(data_state === 0) ? <Text style={styles.text}>{data}</Text> :
+          (data_state < 0) ? <Text style={[styles.text, { color: "#FF0000" }]}>{data + "\n逾期"}</Text> :
+            <Text style={[styles.text, { color: "#FF9900" }]}>{data + "\n被預約+" + data_state}</Text>
+        }
+      </View>
+    </View>
+  );
+
+  const table_data_select = (table_state === 0) ? TableData_ItemBorrow
+    : (table_state === 1) ? TableData_ItemRequest
+      : (table_state === 2) ? TableData_History
+        : TableData_Favourite
 
   return (
     <View>
@@ -66,7 +123,7 @@ export default function (navigation) {
       <View style={{ backgroundColor: '#005BAC', height: 1, flex: 1, alignSelf: 'center' }} />
 
       <View style={styles.Tabs_changeFrame}>
-        {table.name.map((data, index) =>
+        {Table.Name.map((data, index) =>
           <TouchableOpacity
             style={[styles.buttonStyle, table_state === index && { backgroundColor: "#86CADD" }]}
             onPress={() => set_table_state(index)}
@@ -80,37 +137,39 @@ export default function (navigation) {
 
       <View style={styles.container}>
         <Row
-          data={table_data.tableHead}
+          data={Table.Head}
           style={styles.head}
           textStyle={styles.head_text}
-          flexArr={table_data.flexArr}
+          flexArr={Table.flexArr}
         />
-        {table_data.tableData.map((rowData, index) => (
-          <TableWrapper
-            key={index}
-            style={[styles.row, index % 2 && { backgroundColor: "#F7F6E7" }]}
-          >
-            {rowData.map((cellData, cellIndex) =>
-              cellIndex < 2 ? (
-                <Cell
-                  key={cellIndex}
-                  data={
-                    cellIndex === 0
-                      ? book_name(cellData, table_data.tableData[cellIndex][2])
-                      : cellIndex === 1
-                        ? state_info(cellData, table_data.tableData[cellIndex][1])
-                        //cellData 
-                        : cellData
-                  }
-                  flex={table_data.flexArr[cellIndex]}
-                  textStyle={styles.text}
-                />
-              ) : (
-                <View></View>
-              )
-            )}
-          </TableWrapper>
-        ))}
+        <ScrollView>
+          {table_data_select.ItemInfo.map((rowData, index) => (
+            <TableWrapper
+              key={index}
+              style={[styles.row, index % 2 && { backgroundColor: "#F7F6E7" }]}
+            >
+              {rowData.map((cellData, cellIndex) =>
+                cellIndex < 2 ? (
+                  <Cell
+                    key={cellIndex}
+                    data={
+                      (cellIndex === 0)
+                        ? book_name(cellData, table_data_select.ItemInfo[index][2])
+                        : (cellIndex === 1)
+                          ? state_info(cellData, table_data_select.ItemInfo[index][3])
+                          : cellData
+                    }
+                    flex={Table.flexArr[cellIndex]}
+                    textStyle={styles.text}
+                  />
+                ) : (
+                  <View></View>
+                )
+              )}
+            </TableWrapper>
+
+          ))}
+        </ScrollView>
       </View>
 
 

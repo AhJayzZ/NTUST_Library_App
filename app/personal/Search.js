@@ -1,11 +1,32 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, TextInput,Image,TouchableOpacity} from 'react-native';
+import { Text, View, StyleSheet, TextInput,Image,TouchableOpacity ,Linking} from 'react-native';
+import SelectDropdown from 'react-native-select-dropdown';
 
+const search_selection = ["關鍵字", "書刊名", "作者", "主題" , "索書號(美國國會)"  , "索書號(中國圖書)" , "ISBN/ISSN" , "條碼號"]
+const range_selection = ["全部館藏" , "圖書" , "期刊" , "視聽資料", "學位論文", "電子書" , "電子期刊"]
 export default function(navigation){    
 return (
     <View style={{padding: 12}}>
+      <View style={styles.dropdownBtnField}>
+        <SelectDropdown 
+	        data={search_selection}
+	        onSelect={(selectedItem, index) => {console.log(selectedItem, index)}}
+	        buttonTextAfterSelection={(selectedItem, index) => {return selectedItem}}
+	        rowTextForSelection={(item, index) => {return item}}
+          defaultButtonText = {'查詢'}
+          buttonStyle={styles.dropdownBtnStyle}
+          buttonTextStyle={styles.dropdownBtnTextStyle}
+          renderDropdownIcon={isOpened => {
+            return isOpened ? 
+            <Image style={styles.icon_vector} source={require('../../assets/search_page/upVector.png')}/> :
+            <Image style={styles.icon_vector} source={require('../../assets/search_page/downVector.png')}/>
+          }}
+      />
+      </View>
+      
 
       <View style={{flexDirection:'row',}}>
+      
         <TextInput
           style={styles.input_1}
           placeholder="館藏查詢"
@@ -16,7 +37,7 @@ return (
             source={require('../../assets/search_page/ocr.png')}
           />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.input_3} onPress={ () => alert('開發中')}>
+        <TouchableOpacity style={styles.input_3} onPress={ () => navigation.navigation.navigate('scan_bar_code_page')}>
           <Image
             style={styles.barcode}
             source={require('../../assets/search_page/barcode.png')}
@@ -29,6 +50,24 @@ return (
           />
         </TouchableOpacity>
       </View>
+      <View style={styles.dropdownBtnField}>
+        <SelectDropdown 
+	        data={range_selection}
+	        onSelect={(selectedItem, index) => {console.log(selectedItem, index)}}
+	        buttonTextAfterSelection={(selectedItem, index) => {return selectedItem}}
+	        rowTextForSelection={(item, index) => {return item}}
+          defaultButtonText = {'館藏範圍'}
+          buttonStyle={styles.dropdownBtnStyle}
+          buttonTextStyle={styles.dropdownBtnTextStyle}
+          renderDropdownIcon={isOpened => {
+            return isOpened ? 
+            <Image style={styles.icon_vector} source={require('../../assets/search_page/upVector.png')}/> :
+            <Image style={styles.icon_vector} source={require('../../assets/search_page/downVector.png')}/>
+          }}
+        />
+      </View>
+
+
       <View style={styles.container_1}>
         <Text style={styles.Text_1} >新進/熱門館藏</Text>
         <View style={{flexDirection:'row',}}>
@@ -65,7 +104,7 @@ return (
         <View style={{flexDirection: 'row',paddingVertical:5,}}>
 
           <View style={styles.button_area}>
-            <TouchableOpacity onPress={() => alert('開發中') }>
+            <TouchableOpacity onPress={() => Linking.openURL('http://www-o.ntust.edu.tw/~lib/libcat/catalog/newbooks.html') }>
               <Image
               style={styles.button}
               source={require('../../assets/search_page/newBook.png')}/>
@@ -74,7 +113,7 @@ return (
           </View>
 
           <View style={styles.button_area}>
-            <TouchableOpacity onPress={() => alert('開發中') }>
+            <TouchableOpacity onPress={() => Linking.openURL('https://bestsellers.lib.ntust.edu.tw/preversion3/') }>
               <Image
               style={styles.button}
               source={require('../../assets/search_page/classic_book.png')}/>
@@ -83,7 +122,7 @@ return (
           </View>
 
           <View style={styles.button_area}>
-            <TouchableOpacity onPress={ () => navigation.navigation.navigate('random_book_page')}>
+            <TouchableOpacity onPress={() => navigation.navigation.navigate('random_book_page')}>
               <Image
               style={styles.button}
               source={require('../../assets/search_page/random_book.png')}/>
@@ -105,7 +144,7 @@ return (
         {/* Second Row */}
         <View style={{flexDirection: 'row',paddingVertical:5,}}>
           <View style={styles.button_reference_area}>
-            <TouchableOpacity onPress={() => alert('開發中')}>
+            <TouchableOpacity onPress={() => Linking.openURL('http://www-o.ntust.edu.tw/~lib/libcat/catalog/referencebook.html')}>
             <Image
             style={styles.button}
             source={require('../../assets/search_page/reference.png')}/>
@@ -114,7 +153,7 @@ return (
           </View>
 
           <View style={styles.button_area}>
-            <TouchableOpacity onPress={() => alert('開發中')}>
+            <TouchableOpacity onPress={() => Linking.openURL('https://library.ntust.edu.tw/p/412-1049-214.php?')}>
             <Image
             style={styles.button}
             source={require('../../assets/search_page/CD.png')}/>
@@ -123,7 +162,7 @@ return (
           </View>
 
           <View style={styles.button_area}>
-            <TouchableOpacity onPress={() => alert('開發中') }>
+            <TouchableOpacity onPress={() => Linking.openURL('https://library.ntust.edu.tw/p/412-1049-147.php?') }>
             <Image
             style={styles.button}
             source={require('../../assets/search_page/paper.png')}/>
@@ -144,7 +183,7 @@ return (
         {/* Third Row */}
         <View style={{flexDirection: 'row',paddingVertical:5,}}>
           <View style={styles.button_area}>
-            <TouchableOpacity onPress={() => alert('開發中')}>
+            <TouchableOpacity onPress={() => Linking.openURL('https://library.ntust.edu.tw/p/412-1049-127.php?')}>
             <Image
             style={styles.button}
             source={require('../../assets/search_page/e_resource.png')}/>
@@ -163,7 +202,6 @@ const styles = StyleSheet.create({
   input_1: {
     height: 40,
     width: '69%',
-    marginVertical: 12,
     paddingLeft: 10,
     borderWidth: 1,
     borderRightWidth : 0,
@@ -173,14 +211,12 @@ const styles = StyleSheet.create({
     alignSelf: 'center'
   },
   input_2: {
-    marginVertical: 12,
     borderTopWidth: 1,
     borderBottomWidth:1 ,
     borderColor: '#D9D9D9',
     justifyContent : 'center'
   },
   input_3: {
-    marginVertical: 12,
     borderTopWidth: 1,
     borderBottomWidth: 1,
     borderColor: '#D9D9D9',
@@ -188,7 +224,7 @@ const styles = StyleSheet.create({
   },
   input_4: {
     marginRight : 30, 
-    marginVertical: 12,
+    
     borderTopWidth: 1,
     borderBottomWidth: 1,
     borderRightWidth: 1,
@@ -216,6 +252,7 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius:10,
     borderBottomRightRadius:10,
     marginHorizontal: 5,
+    marginTop:5,
   },
   Text_1:{
     height: 44,
@@ -261,5 +298,25 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginLeft: 7,
     marginRight: 11,
+  },
+  dropdownBtnStyle: {
+    width: '100%',
+    height: 40,
+    backgroundColor: '#86CADD',
+    borderRadius: 8,
+  },
+  dropdownBtnField:{
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding:5,
+  },
+  dropdownBtnTextStyle:{
+    fontSize: 20,
+    fontWeight: "400",
+    textAlign: "auto",
+  },
+  icon_vector:{
+    height: 10,
+    width: 15,
   },
 });
