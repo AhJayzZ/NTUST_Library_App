@@ -38,6 +38,7 @@ export default function(navigation) {
           <View style={styles.TextField}>
             <TextInput style={styles.Txt341} 
                         placeholder="身份證字號"
+                        secureTextEntry={true}
                         onChangeText={newId => setId(newId)}></TextInput>
           </View>
         </View>

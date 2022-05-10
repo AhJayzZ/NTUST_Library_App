@@ -47,6 +47,7 @@ export default function(navigation) {
           <View style={styles.TextField}>
             <TextInput style={styles.Txt341} 
                         placeholder="密碼"
+                        secureTextEntry={true}
                         onChangeText={newPassword => setPassword(newPassword)}></TextInput>
           </View>
         </View>
